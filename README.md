@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+**Repository-Beschreibung:**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RFID Ticketing System
 
-## Available Scripts
+Dieses GitHub-Repository enthält den Quellcode für ein RFID-Ticketingsystem, das entwickelt wurde, um die Registrierung und Verwaltung von RFID-basierten Tickets zu ermöglichen. Das System umfasst sowohl die Server- als auch die Client-Komponenten und bietet Funktionen zum Erfassen von RFID-Daten, Buchen von Tickets und zur Verwaltung der Ticketinformationen.
 
-In the project directory, you can run:
+## Features:
 
-### `npm start`
+- **RFID-Daten-Erfassung:** Das System verwendet einen RFID-Reader, um RFID-Daten von physischen Karten einzulesen. Die empfangenen Daten werden verarbeitet und zur Identifikation der Karten verwendet.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Ticket-Buchung:** Benutzer können RFID-Karten scannen und Tickets für verschiedene Veranstaltungen oder Dienstleistungen buchen. Die gebuchten Tickets werden in Textdateien gespeichert.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Webbasierte Benutzeroberfläche:** Ein Frontend-Client (nicht in diesem Repository enthalten) ermöglicht es Benutzern, Tickets zu scannen, zu buchen und Informationen zu vorhandenen Tickets anzuzeigen.
 
-### `npm test`
+- **Protokollierung:** Das System führt Protokollierungsfunktionen durch, um wichtige Ereignisse und Fehler festzuhalten.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Verzeichnisstruktur:
 
-### `npm run build`
+- **`server/`**: Enthält den Node.js-Server-Code, der die Kommunikation mit dem RFID-Reader und die Verarbeitung der Buchungsanfragen durchführt.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **`client/`**: Enthält den Code für das Frontend-Client-Interface (nicht in diesem Repository enthalten).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologien:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Node.js**: Der Server wird mit Node.js entwickelt und verwendet Express.js als Web-Framework.
 
-### `npm run eject`
+- **SerialPort und Readline**: Die Bibliotheken SerialPort und Readline werden verwendet, um Daten vom RFID-Reader zu empfangen und zu verarbeiten.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Express und CORS**: Express wird für die Erstellung der REST-API verwendet, und CORS ermöglicht die Kommunikation mit dem Frontend-Client.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Winston**: Winston wird für die Protokollierung von Informationen und Fehlern verwendet.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Nut-Tree/Nut-JS**: Die Nut-Tree/Nut-JS-Bibliothek wird verwendet, um Tastaturereignisse auszulösen, wie z.B. das Drücken der 'Alt + H'-Tastenkombination.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Anforderungen:
 
-## Learn More
+- Ein RFID-Reader oder RFID-Hardwaregerät.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Node.js und npm (Node Package Manager) müssen auf dem Server installiert sein.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Installation und Verwendung:
 
-### Code Splitting
+1. Klone das Repository auf deinen lokalen Rechner.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Installiere die erforderlichen Node.js-Module, indem du `npm install` im `server/`-Verzeichnis ausführst.
 
-### Analyzing the Bundle Size
+3. Konfiguriere die COM-Port-Einstellungen und den Pfad für die Ticket-Dateien in der `server/app.js`-Datei.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Starte den Server mit `npm start` im `server/`-Verzeichnis.
 
-### Making a Progressive Web App
+5. Entwickle oder konfiguriere den Frontend-Client, um die Server-API zu nutzen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Beitrag und Lizenz:
 
-### Advanced Configuration
+Dieses Repository ist unter der MIT-Lizenz veröffentlicht, was bedeutet, dass du den Code frei verwenden und modifizieren kannst. Wir freuen uns über Beiträge und Verbesserungsvorschläge durch Pull-Anfragen. Bitte beachte unsere Beitragshinweise und den Lizenztext in diesem Repository.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Wir hoffen, dass dieses RFID-Ticketingsystem eine nützliche Grundlage für deine Projekte darstellt und zur Verwaltung von RFID-basierten Tickets beiträgt.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
