@@ -2,23 +2,19 @@
 
 # RFID Ticketing System
 
-Dieses GitHub-Repository enthält den Quellcode für ein RFID-Ticketingsystem, das entwickelt wurde, um die Registrierung und Verwaltung von RFID-basierten Tickets zu ermöglichen. Das System umfasst sowohl die Server- als auch die Client-Komponenten und bietet Funktionen zum Erfassen von RFID-Daten, Buchen von Tickets und zur Verwaltung der Ticketinformationen.
+Dieses GitHub-Repository enthält den Quellcode für ein RFID-Ticketingsystem, das entwickelt wurde, um die Verwaltung von RFID-basierten Tickets für den Bahnbetrieb zu ermöglichen. Das System umfasst sowohl die Server- als auch die Client-Komponenten und bietet Funktionen zum Erfassen von RFID-Daten, Buchen von Tickets und zur Verwaltung der Ticketinformationen.
 
 ## Features:
 
 - **RFID-Daten-Erfassung:** Das System verwendet einen RFID-Reader, um RFID-Daten von physischen Karten einzulesen. Die empfangenen Daten werden verarbeitet und zur Identifikation der Karten verwendet.
 
-- **Ticket-Buchung:** Benutzer können RFID-Karten scannen und Tickets für verschiedene Veranstaltungen oder Dienstleistungen buchen. Die gebuchten Tickets werden in Textdateien gespeichert.
+- **Ticket-Buchung:** Bistro- und Bahnpersonal können RFID-Karten scannen und Tickets für verschiedene Veranstaltungen oder Dienstleistungen buchen. Die gebuchten Tickets werden in Textdateien gespeichert und können am Rennleitungs Arbeitsplatz entwertet werden.
 
-- **Webbasierte Benutzeroberfläche:** Ein Frontend-Client (nicht in diesem Repository enthalten) ermöglicht es Benutzern, Tickets zu scannen, zu buchen und Informationen zu vorhandenen Tickets anzuzeigen.
-
-- **Protokollierung:** Das System führt Protokollierungsfunktionen durch, um wichtige Ereignisse und Fehler festzuhalten.
+- **Protokollierung:** Das System führt Protokollierungsfunktionen durch, um wichtige Ereignisse und Fehler festzuhalten. Außerdem kann die Anzahl verkaufter Tickets mit der Anzahl gebuchter Tickets verglichen werden.
 
 ## Verzeichnisstruktur:
 
-- **`server/`**: Enthält den Node.js-Server-Code, der die Kommunikation mit dem RFID-Reader und die Verarbeitung der Buchungsanfragen durchführt.
-
-- **`client/`**: Enthält den Code für das Frontend-Client-Interface (nicht in diesem Repository enthalten).
+- **`server/`**: Enthält den Node.js-Server-Code, der die Kommunikation mit dem RFID-Reader und die Verarbeitung der Buchungsanfragen durchführt. Im Laufenden System wird der Server durch eine Batch-Datei automatisch gestartet.
 
 ## Technologien:
 
@@ -37,23 +33,3 @@ Dieses GitHub-Repository enthält den Quellcode für ein RFID-Ticketingsystem, d
 - Ein RFID-Reader oder RFID-Hardwaregerät.
 
 - Node.js und npm (Node Package Manager) müssen auf dem Server installiert sein.
-
-## Installation und Verwendung:
-
-1. Klone das Repository auf deinen lokalen Rechner.
-
-2. Installiere die erforderlichen Node.js-Module, indem du `npm install` im `server/`-Verzeichnis ausführst.
-
-3. Konfiguriere die COM-Port-Einstellungen und den Pfad für die Ticket-Dateien in der `server/app.js`-Datei.
-
-4. Starte den Server mit `npm start` im `server/`-Verzeichnis.
-
-5. Entwickle oder konfiguriere den Frontend-Client, um die Server-API zu nutzen.
-
-## Beitrag und Lizenz:
-
-Dieses Repository ist unter der MIT-Lizenz veröffentlicht, was bedeutet, dass du den Code frei verwenden und modifizieren kannst. Wir freuen uns über Beiträge und Verbesserungsvorschläge durch Pull-Anfragen. Bitte beachte unsere Beitragshinweise und den Lizenztext in diesem Repository.
-
-Wir hoffen, dass dieses RFID-Ticketingsystem eine nützliche Grundlage für deine Projekte darstellt und zur Verwaltung von RFID-basierten Tickets beiträgt.
-
----
