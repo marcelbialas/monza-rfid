@@ -23,100 +23,102 @@ function App() {
   const [loading, setLoading] = React.useState(false);
 
   const loadCard = (mode) => {
-    let data = [...rfidData];
-    const date = new Date().toLocaleString("de-DE").replace(",", "");
+  const date = new Date().toLocaleString("de-DE").replace(",", "");
 
-    let modeID = "";
-    let modeDesc = "";
-    let times = 1;
-    let RaceType = 1;
+  let modeID = "";
+  let modeDesc = "";
+  let times = 1;
+  let RaceType = 1;
 
-    if (mode === 10) {
+  switch (mode) {
+    case 10:
+    case 20:
       modeID = 1003;
       modeDesc = "11 Min. Training";
-      RaceType = 1;
-      setLog([...log, { name: modeDesc }]);
-    } else if (mode === 20) {
-      modeID = 1003;
-      modeDesc = "11 Min. Training";
-      times = 1;
-      RaceType = 3;
+      RaceType = mode === 10 ? 1 : 3;
       setLog([...log, { name: modeDesc, anzahl: times }]);
-    } else if (mode === 30) {
+      break;
+    case 30:
       modeID = 1010;
       modeDesc = "11 Min. Training (3er-Ticket)";
       times = 3;
       RaceType = 3;
       setLog([...log, { name: modeDesc, anzahl: times }]);
-    } else if (mode === "np") {
+      break;
+    case "np":
       modeID = 1008;
+      modeDesc = "11 Min. Training (Nice-Price)";
       times = 3;
       RaceType = 8;
-      modeDesc = "11 Min. Training (Nice-Price)";
       setLog([...log, { name: modeDesc, anzahl: times }]);
-    } else if (mode === "vs") {
+      break;
+    case "vs":
       modeID = 1003;
       modeDesc = "Vater / Sohn Ticket";
       RaceType = 9;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === 25) {
+      break;
+    case 25:
       modeID = 2115;
       modeDesc = "Rennen Top 25";
       RaceType = 10;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === 35) {
+      break;
+    case 35:
       modeID = 2118;
       modeDesc = "Rennen Top 35";
       RaceType = 5;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === 45) {
+      break;
+    case 45:
       modeID = 2122;
       modeDesc = "Rennen Top 45";
       RaceType = 6;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === 15) {
+      break;
+    case 15:
       modeID = 2018;
       modeDesc = "Rennen Pro 10";
       RaceType = 7;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === "p15") {
+      break;
+    case "p15":
       modeID = 2040;
       modeDesc = "Rennen Pro 15";
       RaceType = 8;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === "p20") {
+      break;
+    case "p20":
       modeID = 2040;
       modeDesc = "Rennen Pro 20";
       RaceType = 9;
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === "sp") {
+      break;
+    case "sp":
       modeID = 2040;
       modeDesc = "Rennen Sonderpreis";
       setLog([...log, { name: modeDesc }]);
-    } else if (mode === "k") {
+      break;
+    case "k":
       modeID = 2041;
       modeDesc = "extra Kart";
       setLog([...log, { name: modeDesc }]);
-    } else {
+      break;
+    default:
       modeID = 2045;
       modeDesc = "Stundenbuchung";
       RaceType = 2;
       setLog([...log, { name: modeDesc }]);
-    }
+      break;
+  }
 
-    if (times === 1) {
-      data.push(`${modeID};${modeDesc};${RaceType};${date}`);
-    } else if (times === 2) {
-      data.push(`${modeID};${modeDesc};${RaceType};${date}`);
-      data.push(`${modeID};${modeDesc};${RaceType};${date}`);
-    } else if (times === 3) {
-      data.push(`${modeID};${modeDesc};${RaceType};${date}`);
-      data.push(`${modeID};${modeDesc};${RaceType};${date}`);
-      data.push(`${modeID};${modeDesc};${RaceType};${date}`);
-    }
+  const entry = `${modeID};${modeDesc};${RaceType};${date}`;
+  for (let i = 0; i < times; i++) {
+    rfidData.push(entry);
+  }
 
-    setRfidData(data);
-  };
+  setRfidData([...rfidData]);
+};
 
   const saveCard = () => {
     console.log(log);
